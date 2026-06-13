@@ -1,0 +1,71 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Важно для OBS, чтобы не было скроллов */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#donation-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 600px;
+    transition: all 0.5s ease;
+}
+
+#donation-container.hidden {
+    opacity: 0;
+    transform: translate(-50%, 100px) scale(0.9);
+    pointer-events: none;
+}
+
+#donation-container.slide-in {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    animation: bounce 0.6s ease-out forwards;
+}
+
+#don-image {
+    max-width: 250px;
+    max-height: 250px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+}
+
+.text-block {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255, 165, 0, 0.3);
+}
+
+#don-header {
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #ffaa00; /* Классический оранжевый цвет суммы */
+}
+
+#don-message {
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px #000;
+    word-wrap: break-word;
+}
+
+@keyframes bounce {
+    0% { transform: translate(-50%, 50px); opacity: 0; }
+    60% { transform: translate(-50%, -10px); opacity: 1; }
+    100% { transform: translate(-50%, 0); }
+}
